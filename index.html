@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ObjView-Bench is a difficulty-aware and deployment-oriented benchmark for object-centric view planning in active geometric 3D reconstruction.">
+  <meta name="keywords" content="ObjView-Bench, View Planning, Next-Best View, Active 3D Reconstruction, Robotics, Benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ObjView-Bench: Rethinking Difficulty and Deployment for Object-Centric View Planning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <style>
+    .publication-title { line-height: 1.15; }
+    .hero-teaser-image { border-radius: 14px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12); }
+    .figure-card { border: 1px solid #e6e6e6; border-radius: 12px; padding: 1rem; height: 100%; background: #fff; }
+    .figure-card img { width: 100%; border-radius: 8px; }
+    .tagline { max-width: 900px; margin: 1.25rem auto 0; }
+    .coming-soon { opacity: 0.65; pointer-events: none; }
+    .contribution-list li { margin-bottom: 0.75rem; }
+    .benchmark-video-wrapper { margin-top: 2rem; }
+    .benchmark-video { width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12); background: #000; }
+    .video-caption { max-width: 760px; margin: 0.75rem auto 0; color: #555; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#benchmark">Benchmark</a>
+      <a class="navbar-item" href="#experiments">Experiments</a>
+      <a class="navbar-item" href="#BibTeX">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ObjView-Bench: Rethinking Difficulty and Deployment for Object-Centric View Planning</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Sicong Pan<sup>1</sup>,</span>
+            <span class="author-block">Hao Hu<sup>2</sup>,</span>
+            <span class="author-block">Xuying Huang<sup>1</sup>,</span>
+            <span class="author-block">Benno Wingender<sup>1</sup>,</span>
+            <span class="author-block">Maren Bennewitz<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Bonn,</span>
+            <span class="author-block"><sup>2</sup>Independent Researcher</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#BibTeX" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span>
+                  <span>BibTeX</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2605.10707" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Hoooozier/objview_bench" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Hoooozier/objview_dataset" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span>
+                  <span>Data</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <p class="subtitle tagline">
+            A difficulty-aware and deployment-oriented benchmark for object-centric view planning in active geometric 3D reconstruction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <img class="hero-teaser-image" src="./static/images/objview-teaser.png" alt="ObjView-Bench tabletop robot deployment teaser.">
+      <h2 class="subtitle has-text-centered mt-4">
+        ObjView-Bench studies how object geometry, view budget, and reachable-view constraints change view-planning behavior.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Object-centric view planning is a core component of active geometric 3D reconstruction in robotics, yet existing evaluations often conflate object complexity, planning difficulty, budget assumptions, and physical reachability constraints. As a result, conclusions drawn from idealized view-planning evaluations may not reliably predict performance under realistic reconstruction settings.
+          </p>
+          <p>
+            We introduce <strong>ObjView-Bench</strong>, an evaluation framework for rethinking difficulty and deployment in object-centric view planning. First, we disentangle three quantities underlying view-planning evaluation: omnidirectional self-occlusion as an object-side attribute, observation saturation difficulty, and protocol-dependent planning difficulty defined through a set-cover formulation.
+          </p>
+          <p>
+            This separation supports controlled dataset construction, analysis of slow-saturation objects, and a case study showing that planning difficulty-aware sampling can improve learned view planners. We further design deployment-oriented evaluation protocols that reveal how budget regimes and reachable-view constraints alter method behavior. Across classical, learned, and hybrid planners, ObjView-Bench shows that difficulty, budget, and reachability constraints substantially change method rankings and failure modes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="benchmark">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Benchmark Overview</h2>
+        <div class="content has-text-justified">
+          <ul class="contribution-list">
+            <li><strong>Difficulty semantics.</strong> ObjView-Bench separates omnidirectional self-occlusion, observation saturation difficulty, and protocol-dependent planning difficulty.</li>
+            <li><strong>Difficulty-characterized object pool.</strong> The benchmark contains 5,691 manually reviewed objects, including 5,523 main-pool objects and 168 slow-saturation diagnostic objects.</li>
+            <li><strong>Deployment-oriented evaluation.</strong> Methods are evaluated with online RGB-D observations, normalized surface coverage, path cost, runtime, multiple view-budget protocols, and reachable-view constraints.</li>
+            <li><strong>Representative planner coverage.</strong> The study compares classical, learned, and hybrid planners under shared difficulty and deployment semantics.</li>
+          </ul>
+        </div>
+        <div class="benchmark-video-wrapper">
+          <h3 class="title is-4">Observation Saturation Difficulty</h3>
+          <video class="benchmark-video" autoplay muted loop playsinline controls poster="./static/images/objview-saturation.PNG">
+            <source src="./static/videos/objview-saturation.mp4" type="video/mp4">
+          </video>
+          <p class="video-caption">
+            Objects saturate at different rates: simple geometries reveal their observable surface from a few generic views, while concavities, cavities, and inter-part occlusions require denser and more specific viewpoints.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered mt-5">
+      <div class="column">
+        <div class="figure-card">
+          <img src="./static/images/objview-saturation.PNG" alt="Observation saturation behavior.">
+          <p class="has-text-centered mt-2"><strong>Observation saturation.</strong> Marginal gain curves motivate the 128-view planning protocol.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="figure-card">
+          <img src="./static/images/objview-planning-difficulty.PNG" alt="Planning difficulty distribution.">
+          <p class="has-text-centered mt-2"><strong>Planning difficulty.</strong> The main pool has a long-tailed planning-difficulty distribution.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="figure-card">
+          <img src="./static/images/objview-saturation-vs-planning.PNG" alt="Saturation difficulty versus planning difficulty.">
+          <p class="has-text-centered mt-2"><strong>Difficulty disentanglement.</strong> Saturation and planning difficulty are related but not equivalent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experiments">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Findings</h2>
+        <div class="content has-text-justified">
+          <p>
+            ObjView-Bench is designed to study how different planning paradigms behave under difficulty, budget, and reachability shifts rather than to produce a single fixed-protocol leaderboard. The experiments show that method rankings are strongly budget-dependent: online view-selection methods perform well under small budgets, while coverage-oriented planning becomes stronger with larger budgets.
+          </p>
+          <p>
+            Reachability constraints substantially reduce absolute surface coverage and interact with each method's action representation. Classical and hybrid planners remain robust after normalization by reachable observable surface, whereas learned planners can be sensitive when their predicted actions become infeasible.
+          </p>
+          <p>
+            Slow-saturation objects reveal a gap between map stabilization and long-horizon observable-surface saturation. Planning difficulty also acts as a useful learning signal: difficulty-aware sampling improves learned view-set prediction on medium- and high-difficulty objects without changing the model architecture.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered mt-5">
+      <div class="column">
+        <div class="figure-card">
+          <img src="./static/images/objview-analysis-split.PNG" alt="Planning difficulty-aware split.">
+          <p class="has-text-centered mt-2"><strong>Balanced sampling.</strong> Difficulty-aware sampling increases exposure to medium- and high-difficulty objects.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="figure-card">
+          <img src="./static/images/objview-raw-vs-balanced.PNG" alt="Raw versus balanced training effect.">
+          <p class="has-text-centered mt-2"><strong>Training effect.</strong> Balanced sampling improves achieved voxel coverage across the planning-difficulty axis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Lessons for Future View-Planning Methods</h2>
+        <div class="content has-text-justified">
+          <ol>
+            <li><strong>Scaling learned view-set prediction:</strong> larger candidate view sets and longer horizons expose a harder regime for learned set-prediction methods.</li>
+            <li><strong>Reachability-aware learning:</strong> constrained view spaces interact strongly with learned action representations and should be incorporated into training and scoring.</li>
+            <li><strong>Hybrid geometry learning and explicit planning:</strong> completion-guided planning is robust under budget and reachability shifts, but the explicit planning stage should be accelerated.</li>
+            <li><strong>Slow-saturation and budget allocation:</strong> hard-to-reveal surfaces create persistent marginal gains even after the observed map appears stable.</li>
+            <li><strong>Planning difficulty as a learning signal:</strong> difficulty can guide dataset construction, curriculum learning, and active learning.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{pan2026objviewbench,
+  title         = {ObjView-Bench: Rethinking Difficulty and Deployment for Object-Centric View Planning},
+  author        = {Pan, Sicong and Hu, Hao and Huang, Xuying and Wingender, Benno and Bennewitz, Maren},
+  journal       = {arXiv preprint arXiv:2605.10707},
+  year          = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is based on the open-source Nerfies project page template.
+          </p>
+          <p>
+            Website content for <strong>ObjView-Bench</strong>. Paper, code, and data links are available above; video links will be added when available.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const burgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    burgers.forEach(function (burger) {
+      burger.addEventListener('click', function () {
+        burger.classList.toggle('is-active');
+        document.querySelector('.navbar-menu').classList.toggle('is-active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
