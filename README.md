@@ -7,8 +7,8 @@ This repository contains the project website for:
 ObjView-Bench is a difficulty-aware and deployment-oriented benchmark for object-centric view planning in active geometric 3D reconstruction.
 
 - Paper: https://arxiv.org/abs/2605.10707
-- Code: https://github.com/Hoooozier/objview_bench
-- Data: https://github.com/Hoooozier/objview_dataset
+- Code: https://github.com/objview-bench/objview_bench
+- Data: https://github.com/objview-bench/objview_dataset
 
 If you find ObjView-Bench useful for your work, please cite:
 
